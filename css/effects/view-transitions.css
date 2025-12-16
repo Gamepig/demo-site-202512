@@ -1,0 +1,351 @@
+/**
+ * View Transitions API
+ * Page navigation animations for modern browsers
+ */
+
+/* ========================================
+ * Enable View Transitions
+ * ======================================== */
+
+@view-transition {
+  navigation: auto;
+}
+
+/* ========================================
+ * Root Transition (Full Page)
+ * ======================================== */
+
+/* Default: Cross-fade */
+::view-transition-old(root) {
+  animation: vt-fade-out 0.3s ease-out forwards;
+}
+
+::view-transition-new(root) {
+  animation: vt-fade-in 0.3s ease-in forwards;
+}
+
+@keyframes vt-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes vt-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ========================================
+ * Named Transitions - Hero
+ * ======================================== */
+
+.vt-hero {
+  view-transition-name: hero;
+}
+
+::view-transition-old(hero) {
+  animation: vt-scale-out 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+::view-transition-new(hero) {
+  animation: vt-scale-in 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes vt-scale-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+@keyframes vt-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ========================================
+ * Named Transitions - Card
+ * ======================================== */
+
+.vt-card {
+  view-transition-name: card;
+}
+
+::view-transition-old(card) {
+  animation: vt-card-out 0.3s ease-out forwards;
+}
+
+::view-transition-new(card) {
+  animation: vt-card-in 0.3s ease-in forwards;
+}
+
+@keyframes vt-card-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes vt-card-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================================
+ * Named Transitions - Header
+ * ======================================== */
+
+.vt-header {
+  view-transition-name: header;
+}
+
+/* Header stays in place during transition */
+::view-transition-old(header),
+::view-transition-new(header) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* ========================================
+ * Named Transitions - Sidebar
+ * ======================================== */
+
+.vt-sidebar {
+  view-transition-name: sidebar;
+}
+
+/* Sidebar slides */
+::view-transition-old(sidebar) {
+  animation: vt-slide-out-left 0.3s ease-out forwards;
+}
+
+::view-transition-new(sidebar) {
+  animation: vt-slide-in-left 0.3s ease-in forwards;
+}
+
+@keyframes vt-slide-out-left {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+}
+
+@keyframes vt-slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ========================================
+ * Named Transitions - Content
+ * ======================================== */
+
+.vt-content {
+  view-transition-name: main-content;
+}
+
+::view-transition-old(main-content) {
+  animation: vt-content-out 0.25s ease-out forwards;
+}
+
+::view-transition-new(main-content) {
+  animation: vt-content-in 0.25s ease-in 0.1s forwards;
+}
+
+@keyframes vt-content-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+@keyframes vt-content-in {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================================
+ * Named Transitions - Modal
+ * ======================================== */
+
+.vt-modal {
+  view-transition-name: modal;
+}
+
+::view-transition-old(modal) {
+  animation: vt-modal-out 0.2s ease-out forwards;
+}
+
+::view-transition-new(modal) {
+  animation: vt-modal-in 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes vt-modal-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+@keyframes vt-modal-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ========================================
+ * Named Transitions - Bento Items
+ * ======================================== */
+
+.vt-bento-1 { view-transition-name: bento-1; }
+.vt-bento-2 { view-transition-name: bento-2; }
+.vt-bento-3 { view-transition-name: bento-3; }
+.vt-bento-4 { view-transition-name: bento-4; }
+.vt-bento-5 { view-transition-name: bento-5; }
+.vt-bento-6 { view-transition-name: bento-6; }
+
+/* Staggered bento item animations */
+::view-transition-old(bento-1),
+::view-transition-old(bento-2),
+::view-transition-old(bento-3),
+::view-transition-old(bento-4),
+::view-transition-old(bento-5),
+::view-transition-old(bento-6) {
+  animation: vt-bento-out 0.3s ease-out forwards;
+}
+
+::view-transition-new(bento-1) { animation: vt-bento-in 0.4s ease-out 0ms forwards; }
+::view-transition-new(bento-2) { animation: vt-bento-in 0.4s ease-out 50ms forwards; }
+::view-transition-new(bento-3) { animation: vt-bento-in 0.4s ease-out 100ms forwards; }
+::view-transition-new(bento-4) { animation: vt-bento-in 0.4s ease-out 150ms forwards; }
+::view-transition-new(bento-5) { animation: vt-bento-in 0.4s ease-out 200ms forwards; }
+::view-transition-new(bento-6) { animation: vt-bento-in 0.4s ease-out 250ms forwards; }
+
+@keyframes vt-bento-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+@keyframes vt-bento-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* ========================================
+ * Transition Groups
+ * ======================================== */
+
+/* Image group - smooth morph */
+.vt-image {
+  view-transition-name: shared-image;
+}
+
+::view-transition-old(shared-image),
+::view-transition-new(shared-image) {
+  animation-duration: 0.4s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ========================================
+ * Fallback for unsupported browsers
+ * ======================================== */
+
+/* Feature detection handled by browser -
+   unsupported browsers will ignore @view-transition */
+
+/* Manual fallback class for JS-triggered transitions */
+.no-view-transitions .page-transition-enter {
+  animation: vt-fade-in 0.3s ease forwards;
+}
+
+.no-view-transitions .page-transition-exit {
+  animation: vt-fade-out 0.3s ease forwards;
+}
+
+/* ========================================
+ * Reduced Motion
+ * ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root),
+  ::view-transition-old(hero),
+  ::view-transition-new(hero),
+  ::view-transition-old(card),
+  ::view-transition-new(card),
+  ::view-transition-old(sidebar),
+  ::view-transition-new(sidebar),
+  ::view-transition-old(main-content),
+  ::view-transition-new(main-content),
+  ::view-transition-old(modal),
+  ::view-transition-new(modal) {
+    animation: none;
+  }
+}

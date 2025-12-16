@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>離線 - Nexus Bento</title>
+  <style>
+    :root {
+      --bg-base: oklch(15% 0.01 280);
+      --primary: oklch(58% 0.30 280);
+      --text-primary: oklch(95% 0.01 280);
+      --text-secondary: oklch(70% 0.01 280);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg-base);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .offline-container {
+      text-align: center;
+      padding: 2rem;
+      max-width: 400px;
+    }
+
+    .offline-icon {
+      font-size: 5rem;
+      margin-bottom: 1.5rem;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, var(--primary), oklch(72% 0.20 195));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p {
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .retry-btn {
+      display: inline-block;
+      padding: 0.75rem 2rem;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .retry-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px oklch(58% 0.30 280 / 0.4);
+    }
+
+    .retry-btn:active {
+      transform: scale(0.98);
+    }
+  </style>
+</head>
+<body>
+  <div class="offline-container">
+    <div class="offline-icon">📡</div>
+    <h1>您目前離線</h1>
+    <p>請檢查您的網路連線，然後重試。部分功能在離線時可能無法使用。</p>
+    <button class="retry-btn" onclick="location.reload()">重新載入</button>
+  </div>
+</body>
+</html>

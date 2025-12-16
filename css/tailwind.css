@@ -1,0 +1,108 @@
+/* === External CSS Imports (must be first) === */
+@import './core/design-tokens.css';
+@import './core/accessibility.css';
+@import './layout/bento-grid.css';
+@import './effects/glassmorphism.css';
+@import './effects/animations.css';
+@import './effects/view-transitions.css';
+@import './components/ui.css';
+
+/* === Tailwind Directives === */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* === Base Styles === */
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: oklch(15% 0.01 280);
+    color: oklch(95% 0.01 280);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Accessibility: Reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* === Component Utilities === */
+@layer components {
+  /* Glass Card Base */
+  .glass-card {
+    @apply bg-glass-bg backdrop-blur-glass border border-glass-border rounded-bento;
+    box-shadow: 0 8px 32px oklch(0% 0 0 / 0.15), inset 0 1px 0 oklch(100% 0 0 / 0.05);
+  }
+
+  .glass-card:hover {
+    box-shadow: 0 16px 48px oklch(0% 0 0 / 0.2), 0 0 40px oklch(58% 0.30 280 / 0.15);
+  }
+
+  /* Button Base */
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-bento-sm font-medium transition-all duration-200;
+  }
+
+  .btn-primary {
+    @apply bg-aurora text-white;
+  }
+
+  .btn-primary:hover {
+    @apply scale-105;
+    box-shadow: 0 0 30px oklch(58% 0.30 280 / 0.4);
+  }
+
+  .btn-primary:active {
+    @apply scale-95;
+  }
+
+  .btn-glass {
+    @apply glass-card text-white;
+  }
+}
+
+/* === Custom Utilities === */
+@layer utilities {
+  /* Text Gradient */
+  .text-gradient {
+    background: linear-gradient(135deg, oklch(58% 0.30 280), oklch(72% 0.20 195));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glow Effects */
+  .glow-primary {
+    box-shadow: 0 0 30px oklch(58% 0.30 280 / 0.4);
+  }
+
+  .glow-secondary {
+    box-shadow: 0 0 30px oklch(72% 0.20 195 / 0.4);
+  }
+
+  /* Container */
+  .container-bento {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 clamp(1rem, 5vw, 2rem);
+  }
+}

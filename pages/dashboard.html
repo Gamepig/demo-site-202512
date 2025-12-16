@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Nexus Bento Dashboard - 2026 Web Design">
+  <meta name="theme-color" content="#7c3aed">
+  <link rel="manifest" href="../manifest.json">
+  <title>Dashboard - Nexus Bento</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../dist/output.css">
+
+  <!-- View Transitions -->
+  <meta name="view-transition" content="same-origin">
+</head>
+<body class="sidebar-open">
+  <!-- Aurora Background -->
+  <div class="fixed inset-0 -z-10" style="background: var(--gradient-mesh);"></div>
+
+  <!-- Sidebar -->
+  <aside class="sidebar glass-sidebar vt-sidebar">
+    <div class="p-6 border-b border-glass-border">
+      <a href="../index.html" class="text-fluid-lg font-bold text-gradient">Nexus Bento</a>
+    </div>
+
+    <nav class="p-4">
+      <div class="text-text-muted text-fluid-xs uppercase tracking-wider mb-3 px-3">Main</div>
+      <ul class="space-y-1">
+        <li>
+          <a href="dashboard.html" class="sidebar-link active">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+            </svg>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="js-showcase.html" class="sidebar-link">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+            </svg>
+            <span>JS Showcase</span>
+          </a>
+        </li>
+        <li>
+          <a href="projects.html" class="sidebar-link">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+            </svg>
+            <span>Projects</span>
+          </a>
+        </li>
+        <li>
+          <a href="calendar.html" class="sidebar-link">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+            </svg>
+            <span>Calendar</span>
+          </a>
+        </li>
+        <li>
+          <a href="kanban.html" class="sidebar-link">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"></path>
+            </svg>
+            <span>Kanban</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="text-text-muted text-fluid-xs uppercase tracking-wider mb-3 px-3 mt-8">Settings</div>
+      <ul class="space-y-1">
+        <li>
+          <a href="profile.html" class="sidebar-link">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+            </svg>
+            <span>Profile</span>
+          </a>
+        </li>
+        <li>
+          <a href="settings-general.html" class="sidebar-link">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            </svg>
+            <span>Settings</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Sidebar Footer -->
+    <div class="absolute bottom-0 left-0 right-0 p-4 border-t border-glass-border">
+      <button data-theme-toggle class="sidebar-link w-full justify-start">
+        <span class="theme-icon">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+          </svg>
+        </span>
+        <span>Toggle Theme</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="lg:ml-[280px] min-h-screen">
+    <!-- Top Header -->
+    <header class="glass-header sticky top-0 z-40">
+      <div class="flex items-center justify-between h-16 px-6">
+        <div class="flex items-center gap-4">
+          <button data-hamburger class="lg:hidden glass-btn p-2">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+          <h1 class="text-fluid-xl font-semibold">Dashboard</h1>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <!-- Search -->
+          <div class="hidden md:block">
+            <div class="relative">
+              <input type="text" placeholder="Search..." class="glass-input pl-10 w-64">
+              <svg class="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Notifications -->
+          <button class="glass-btn p-2 relative">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+            </svg>
+            <span class="absolute top-1 right-1 w-2 h-2 bg-accent-500 rounded-full"></span>
+          </button>
+
+          <!-- User Avatar -->
+          <div class="dropdown">
+            <button class="dropdown-trigger flex items-center gap-2">
+              <div class="w-9 h-9 rounded-full bg-aurora flex items-center justify-center text-white font-medium">
+                JD
+              </div>
+            </button>
+            <div class="dropdown-menu">
+              <a href="profile.html" class="dropdown-item">Profile</a>
+              <a href="settings-general.html" class="dropdown-item">Settings</a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item text-accent-500">Logout</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Dashboard Content -->
+    <main class="p-6 vt-content">
+      <!-- KPI Cards -->
+      <div class="bento-grid mb-6 reveal-stagger">
+        <!-- KPI 1 -->
+        <div class="bento-sm glass-card p-5 hover-lift vt-bento-1">
+          <div class="flex items-center justify-between mb-3">
+            <div class="w-10 h-10 rounded-bento-sm bg-primary-500/20 flex items-center justify-center">
+              <svg class="w-5 h-5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <span class="text-success-500 text-fluid-sm flex items-center gap-1">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+              </svg>
+              12%
+            </span>
+          </div>
+          <div class="text-fluid-2xl font-bold text-gradient">$48,352</div>
+          <div class="text-text-muted text-fluid-sm">Total Revenue</div>
+        </div>
+
+        <!-- KPI 2 -->
+        <div class="bento-sm glass-card p-5 hover-lift vt-bento-2">
+          <div class="flex items-center justify-between mb-3">
+            <div class="w-10 h-10 rounded-bento-sm bg-secondary-500/20 flex items-center justify-center">
+              <svg class="w-5 h-5 text-secondary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+              </svg>
+            </div>
+            <span class="text-success-500 text-fluid-sm flex items-center gap-1">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+              </svg>
+              8%
+            </span>
+          </div>
+          <div class="text-fluid-2xl font-bold text-gradient">2,847</div>
+          <div class="text-text-muted text-fluid-sm">Active Users</div>
+        </div>
+
+        <!-- KPI 3 -->
+        <div class="bento-sm glass-card p-5 hover-lift vt-bento-3">
+          <div class="flex items-center justify-between mb-3">
+            <div class="w-10 h-10 rounded-bento-sm bg-accent-500/20 flex items-center justify-center">
+              <svg class="w-5 h-5 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+              </svg>
+            </div>
+            <span class="text-warning-500 text-fluid-sm flex items-center gap-1">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+              </svg>
+              5%
+            </span>
+          </div>
+          <div class="text-fluid-2xl font-bold text-gradient">1,234</div>
+          <div class="text-text-muted text-fluid-sm">Orders</div>
+        </div>
+
+        <!-- KPI 4 -->
+        <div class="bento-sm glass-card p-5 hover-lift vt-bento-4">
+          <div class="flex items-center justify-between mb-3">
+            <div class="w-10 h-10 rounded-bento-sm bg-success-500/20 flex items-center justify-center">
+              <svg class="w-5 h-5 text-success-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+              </svg>
+            </div>
+            <span class="text-success-500 text-fluid-sm flex items-center gap-1">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+              </svg>
+              18%
+            </span>
+          </div>
+          <div class="text-fluid-2xl font-bold text-gradient">89.2%</div>
+          <div class="text-text-muted text-fluid-sm">Conversion Rate</div>
+        </div>
+      </div>
+
+      <!-- Charts & Activity -->
+      <div class="bento-grid">
+        <!-- Main Chart -->
+        <div class="bento-lg glass-card p-6 vt-bento-5 reveal">
+          <div class="flex items-center justify-between mb-6">
+            <h2 class="text-fluid-lg font-semibold">Revenue Overview</h2>
+            <div class="tabs">
+              <button class="tab-item active">Week</button>
+              <button class="tab-item">Month</button>
+              <button class="tab-item">Year</button>
+            </div>
+          </div>
+          <!-- Chart Placeholder -->
+          <div class="h-64 rounded-bento-sm bg-surface-card flex items-center justify-center">
+            <div class="text-center">
+              <div class="text-fluid-4xl mb-2 animate-pulse">📊</div>
+              <div class="text-text-muted">Chart.js integration ready</div>
+              <div class="text-text-secondary text-fluid-sm mt-1">Add charts.js for data visualization</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="bento-md glass-card p-6 vt-bento-6 reveal">
+          <h2 class="text-fluid-lg font-semibold mb-4">Recent Activity</h2>
+          <div class="space-y-4">
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-full bg-primary-500/20 flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                </svg>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="text-fluid-sm font-medium">New project created</div>
+                <div class="text-text-muted text-fluid-xs">2 minutes ago</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-full bg-success-500/20 flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-success-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="text-fluid-sm font-medium">Task completed</div>
+                <div class="text-text-muted text-fluid-xs">15 minutes ago</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-full bg-secondary-500/20 flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-secondary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                </svg>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="text-fluid-sm font-medium">New user registered</div>
+                <div class="text-text-muted text-fluid-xs">1 hour ago</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-full bg-accent-500/20 flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="text-fluid-sm font-medium">Email campaign sent</div>
+                <div class="text-text-muted text-fluid-xs">3 hours ago</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="bento-md glass-card p-6 reveal">
+          <h2 class="text-fluid-lg font-semibold mb-4">Quick Actions</h2>
+          <div class="grid grid-cols-2 gap-3">
+            <button class="glass-btn p-4 text-left hover-lift">
+              <svg class="w-6 h-6 text-primary-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+              </svg>
+              <div class="text-fluid-sm font-medium">New Project</div>
+            </button>
+            <button class="glass-btn p-4 text-left hover-lift">
+              <svg class="w-6 h-6 text-secondary-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path>
+              </svg>
+              <div class="text-fluid-sm font-medium">Add User</div>
+            </button>
+            <button class="glass-btn p-4 text-left hover-lift">
+              <svg class="w-6 h-6 text-accent-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+              </svg>
+              <div class="text-fluid-sm font-medium">Reports</div>
+            </button>
+            <button class="glass-btn p-4 text-left hover-lift">
+              <svg class="w-6 h-6 text-success-500 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+              <div class="text-fluid-sm font-medium">Settings</div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Sidebar Overlay -->
+  <div class="sidebar-overlay"></div>
+
+  <!-- Core Scripts -->
+  <script src="../js/core/main.js"></script>
+  <script src="../js/core/theme-toggle.js"></script>
+  <script src="../js/core/navigation.js"></script>
+
+  <!-- Effect Scripts -->
+  <script src="../js/effects/scroll-storytelling.js"></script>
+  <script src="../js/effects/micro-delights.js"></script>
+  <script src="../js/effects/bento-interactions.js"></script>
+
+  <!-- App Entry -->
+  <script src="../js/app.js"></script>
+</body>
+</html>

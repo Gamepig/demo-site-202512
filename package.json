@@ -1,0 +1,29 @@
+{
+  "name": "nexus-bento",
+  "version": "1.0.0",
+  "description": "2026 Web Design 趨勢展示平台 - Bento Grid + Glassmorphism",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx postcss ./css/tailwind.css -o ./dist/output.css --watch",
+    "build": "npx postcss ./css/tailwind.css -o ./dist/output.css",
+    "serve": "npx serve .",
+    "preview": "npm run build && npm run serve"
+  },
+  "keywords": [
+    "bento-grid",
+    "glassmorphism",
+    "2026-design",
+    "web-design",
+    "tailwindcss",
+    "view-transitions"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^10.4.23",
+    "postcss": "^8.5.6",
+    "postcss-cli": "^11.0.1",
+    "postcss-import": "^16.1.1",
+    "tailwindcss": "^3.4.19"
+  }
+}

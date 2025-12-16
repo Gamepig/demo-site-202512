@@ -1,0 +1,233 @@
+/**
+ * Glassmorphism Effects
+ * Glass-like UI components with blur and transparency
+ */
+
+/* ========================================
+ * Base Glass Effect
+ * ======================================== */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-bento);
+}
+
+/* ========================================
+ * Glass Card Variants
+ * ======================================== */
+
+/* Standard Glass Card */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-bento);
+  box-shadow: var(--shadow-glass);
+  transition: transform var(--duration-normal) var(--ease-smooth),
+              box-shadow var(--duration-normal) var(--ease-smooth);
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glass-hover);
+}
+
+/* Light Glass (more transparent) */
+.glass-light {
+  background: var(--glass-bg-light);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border-light);
+  border-radius: var(--radius-bento);
+}
+
+/* Heavy Glass (more blur, more opaque) */
+.glass-heavy {
+  background: oklch(20% 0.01 280 / 0.8);
+  backdrop-filter: blur(var(--glass-blur-lg));
+  -webkit-backdrop-filter: blur(var(--glass-blur-lg));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-bento);
+}
+
+/* ========================================
+ * Glass Surfaces
+ * ======================================== */
+
+/* Glass Header/Navbar */
+.glass-header {
+  background: oklch(15% 0.01 280 / 0.85);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border-bottom: 1px solid var(--glass-border);
+}
+
+/* Glass Sidebar */
+.glass-sidebar {
+  background: oklch(18% 0.01 280 / 0.9);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border-right: 1px solid var(--glass-border);
+}
+
+/* Glass Modal Backdrop */
+.glass-backdrop {
+  background: oklch(0% 0 0 / 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Glass Modal Content */
+.glass-modal {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur-lg));
+  -webkit-backdrop-filter: blur(var(--glass-blur-lg));
+  border: 1px solid var(--glass-border-light);
+  border-radius: var(--radius-bento-lg);
+  box-shadow: var(--shadow-2xl);
+}
+
+/* ========================================
+ * Glass Interactive Elements
+ * ======================================== */
+
+/* Glass Button */
+.glass-btn {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-bento-sm);
+  padding: var(--space-3) var(--space-6);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-smooth);
+}
+
+.glass-btn:hover {
+  background: oklch(100% 0 0 / 0.15);
+  border-color: var(--glass-border-light);
+  transform: translateY(-2px);
+}
+
+.glass-btn:active {
+  transform: translateY(0);
+}
+
+/* Glass Input */
+.glass-input {
+  background: oklch(0% 0 0 / 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-bento-sm);
+  padding: var(--space-3) var(--space-4);
+  color: var(--text-primary);
+  transition: border-color var(--duration-fast) var(--ease-smooth),
+              box-shadow var(--duration-fast) var(--ease-smooth);
+}
+
+.glass-input:focus {
+  outline: none;
+  border-color: var(--color-primary-500);
+  box-shadow: 0 0 0 3px oklch(58% 0.30 280 / 0.2);
+}
+
+.glass-input::placeholder {
+  color: var(--text-muted);
+}
+
+/* ========================================
+ * Glass with Aurora Glow
+ * ======================================== */
+
+/* Aurora Border Glow */
+.glass-aurora {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid transparent;
+  border-radius: var(--radius-bento);
+  position: relative;
+}
+
+.glass-aurora::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: var(--gradient-aurora);
+  z-index: -1;
+  opacity: 0.5;
+  transition: opacity var(--duration-normal) var(--ease-smooth);
+}
+
+.glass-aurora:hover::before {
+  opacity: 0.8;
+}
+
+/* Featured Card with Glow */
+.glass-featured {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid oklch(58% 0.30 280 / 0.3);
+  border-radius: var(--radius-bento);
+  box-shadow:
+    var(--shadow-glass),
+    0 0 40px oklch(58% 0.30 280 / 0.15);
+  transition: all var(--duration-normal) var(--ease-smooth);
+}
+
+.glass-featured:hover {
+  border-color: oklch(58% 0.30 280 / 0.5);
+  box-shadow:
+    var(--shadow-glass-hover),
+    0 0 60px oklch(58% 0.30 280 / 0.25);
+}
+
+/* ========================================
+ * Glass Inner Highlights
+ * ======================================== */
+
+/* Top edge highlight */
+.glass-highlight {
+  position: relative;
+}
+
+.glass-highlight::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    oklch(100% 0 0 / 0.3) 50%,
+    transparent 100%
+  );
+}
+
+/* ========================================
+ * Fallback for unsupported browsers
+ * ======================================== */
+@supports not (backdrop-filter: blur(1px)) {
+  .glass,
+  .glass-card,
+  .glass-light,
+  .glass-heavy,
+  .glass-header,
+  .glass-sidebar,
+  .glass-modal,
+  .glass-btn,
+  .glass-input,
+  .glass-aurora,
+  .glass-featured {
+    background: oklch(20% 0.02 280 / 0.95);
+  }
+}

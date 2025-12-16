@@ -1,0 +1,248 @@
+/**
+ * Bento Grid System
+ * 12-column responsive grid with modular block sizes
+ */
+
+/* ========================================
+ * Container
+ * ======================================== */
+.bento-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--bento-padding, clamp(1rem, 5vw, 2rem));
+}
+
+/* ========================================
+ * Grid Layout
+ * ======================================== */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--bento-gap);
+  width: 100%;
+}
+
+/* ========================================
+ * Block Sizes
+ * ======================================== */
+
+/* Small - 3 columns x 1 row (KPI cards) */
+.bento-sm {
+  grid-column: span 3;
+  grid-row: span 1;
+  min-height: 120px;
+}
+
+/* Medium - 6 columns x 1 row */
+.bento-md {
+  grid-column: span 6;
+  grid-row: span 1;
+  min-height: 180px;
+}
+
+/* Large - 6 columns x 2 rows */
+.bento-lg {
+  grid-column: span 6;
+  grid-row: span 2;
+  min-height: 360px;
+}
+
+/* Extra Large - 9 columns x 2 rows */
+.bento-xl {
+  grid-column: span 9;
+  grid-row: span 2;
+  min-height: 400px;
+}
+
+/* Hero - 8 columns x 3 rows */
+.bento-hero {
+  grid-column: span 8;
+  grid-row: span 3;
+  min-height: 480px;
+}
+
+/* Full Width - 12 columns x 1 row */
+.bento-full {
+  grid-column: span 12;
+  grid-row: span 1;
+  min-height: 200px;
+}
+
+/* ========================================
+ * Bento Item Base Styles
+ * ======================================== */
+.bento-item {
+  position: relative;
+  padding: var(--bento-padding);
+  border-radius: var(--radius-bento);
+  overflow: hidden;
+  transition: transform var(--duration-normal) var(--ease-smooth),
+              box-shadow var(--duration-normal) var(--ease-smooth);
+}
+
+.bento-item:hover {
+  transform: translateY(-4px);
+}
+
+/* ========================================
+ * Responsive Breakpoints
+ * ======================================== */
+
+/* Tablet (768px - 1023px) - 8 columns */
+@media (max-width: 1023px) {
+  .bento-grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  .bento-sm {
+    grid-column: span 4;
+  }
+
+  .bento-md {
+    grid-column: span 4;
+  }
+
+  .bento-lg {
+    grid-column: span 4;
+    grid-row: span 2;
+  }
+
+  .bento-xl {
+    grid-column: span 8;
+    grid-row: span 2;
+  }
+
+  .bento-hero {
+    grid-column: span 8;
+    grid-row: span 2;
+  }
+
+  .bento-full {
+    grid-column: span 8;
+  }
+}
+
+/* Mobile (< 768px) - 4 columns, linear stacking */
+@media (max-width: 767px) {
+  .bento-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .bento-sm,
+  .bento-md,
+  .bento-lg,
+  .bento-xl,
+  .bento-hero,
+  .bento-full {
+    grid-column: span 4;
+    grid-row: span 1;
+    min-height: auto;
+  }
+
+  .bento-lg,
+  .bento-xl,
+  .bento-hero {
+    min-height: 280px;
+  }
+}
+
+/* Small Mobile (< 480px) - full width */
+@media (max-width: 479px) {
+  .bento-container {
+    padding: 0 var(--space-4);
+  }
+
+  .bento-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .bento-sm,
+  .bento-md,
+  .bento-lg,
+  .bento-xl,
+  .bento-hero,
+  .bento-full {
+    grid-column: span 1;
+  }
+}
+
+/* ========================================
+ * Special Layout Patterns
+ * ======================================== */
+
+/* 2-column equal split */
+.bento-half {
+  grid-column: span 6;
+}
+
+@media (max-width: 767px) {
+  .bento-half {
+    grid-column: span 4;
+  }
+}
+
+/* 3-column equal split */
+.bento-third {
+  grid-column: span 4;
+}
+
+@media (max-width: 1023px) {
+  .bento-third {
+    grid-column: span 4;
+  }
+}
+
+@media (max-width: 767px) {
+  .bento-third {
+    grid-column: span 4;
+  }
+}
+
+/* Sidebar layout (4 + 8) */
+.bento-sidebar {
+  grid-column: span 4;
+}
+
+.bento-main {
+  grid-column: span 8;
+}
+
+@media (max-width: 1023px) {
+  .bento-sidebar {
+    grid-column: span 8;
+  }
+
+  .bento-main {
+    grid-column: span 8;
+  }
+}
+
+@media (max-width: 767px) {
+  .bento-sidebar,
+  .bento-main {
+    grid-column: span 4;
+  }
+}
+
+/* ========================================
+ * Auto-fit Variants
+ * ======================================== */
+.bento-grid-auto {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--bento-gap);
+}
+
+.bento-grid-auto-sm {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--bento-gap);
+}
+
+.bento-grid-auto-lg {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: var(--bento-gap);
+}

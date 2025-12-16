@@ -1,0 +1,251 @@
+/**
+ * Accessibility Enhancements
+ * Focus states, skip links, and accessibility utilities
+ */
+
+/* ========================================
+ * Skip Link
+ * ======================================== */
+
+.skip-link {
+  position: fixed;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  padding: 1rem 2rem;
+  background: var(--color-primary-500);
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: var(--radius-bento-sm);
+  transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+/* ========================================
+ * Focus Visible States
+ * ======================================== */
+
+/* Global focus visible */
+:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+}
+
+/* Remove default focus for mouse users */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Enhanced focus for interactive elements */
+.btn:focus-visible,
+.glass-btn:focus-visible,
+.sidebar-link:focus-visible,
+.tab-item:focus-visible {
+  outline: 2px solid var(--color-primary-400);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px oklch(58% 0.30 280 / 0.2);
+}
+
+/* Glass card focus */
+.glass-card:focus-visible {
+  outline: 2px solid var(--color-primary-400);
+  outline-offset: -2px;
+}
+
+/* Form inputs focus */
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: none;
+  border-color: var(--color-primary-500);
+  box-shadow: 0 0 0 3px oklch(58% 0.30 280 / 0.2);
+}
+
+/* ========================================
+ * Screen Reader Only
+ * ======================================== */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.sr-only-focusable:focus,
+.sr-only-focusable:active {
+  position: static;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* ========================================
+ * High Contrast Mode
+ * ======================================== */
+
+@media (prefers-contrast: high) {
+  .glass-card,
+  .glass-featured {
+    border-width: 2px;
+    border-color: currentColor;
+  }
+
+  .btn {
+    border: 2px solid currentColor;
+  }
+
+  .text-secondary,
+  .text-text-secondary {
+    opacity: 1;
+    color: inherit;
+  }
+}
+
+/* ========================================
+ * Reduced Transparency
+ * ======================================== */
+
+@media (prefers-reduced-transparency: reduce) {
+  .glass-card,
+  .glass-featured,
+  .glass-sidebar,
+  .glass-header {
+    backdrop-filter: none;
+    background: var(--color-surface-card);
+  }
+}
+
+/* ========================================
+ * Touch Target Size
+ * ======================================== */
+
+/* Ensure minimum touch target size of 44x44px */
+@media (pointer: coarse) {
+  .btn,
+  .glass-btn,
+  .sidebar-link,
+  .tab-item,
+  [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Increase tap target for small buttons */
+  .btn-sm {
+    padding: 0.75rem 1.25rem;
+  }
+}
+
+/* ========================================
+ * Color Blind Support
+ * ======================================== */
+
+/* Ensure status colors have additional indicators */
+.text-success-400::before,
+.text-success-500::before {
+  content: "✓ ";
+}
+
+.text-error-400::before,
+.text-error-500::before {
+  content: "✗ ";
+}
+
+.text-warning-400::before,
+.text-warning-500::before {
+  content: "⚠ ";
+}
+
+/* Only show indicators when needed */
+.no-indicator::before {
+  content: none !important;
+}
+
+/* ========================================
+ * Keyboard Navigation
+ * ======================================== */
+
+/* Show focus indicators only when using keyboard */
+.using-mouse *:focus {
+  outline: none;
+}
+
+/* Focus within for card interactions */
+.glass-card:focus-within {
+  box-shadow: 0 0 0 2px oklch(58% 0.30 280 / 0.3);
+}
+
+/* ========================================
+ * Animation Preferences
+ * ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  /* Disable scroll animations */
+  [data-scroll] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* Disable hover animations */
+  .hover-lift:hover,
+  .hover-scale:hover {
+    transform: none;
+  }
+
+  /* Disable continuous animations */
+  .animate-float,
+  .animate-pulse,
+  .animate-shimmer,
+  .animate-bounce {
+    animation: none;
+  }
+
+  /* Keep essential transitions but make them instant */
+  .btn,
+  .glass-card,
+  .sidebar-link,
+  .tab-item {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ========================================
+ * Print Styles
+ * ======================================== */
+
+@media print {
+  .sidebar,
+  .sidebar-overlay,
+  [data-theme-toggle],
+  .btn,
+  .skip-link {
+    display: none !important;
+  }
+
+  .glass-card {
+    background: white;
+    border: 1px solid #ccc;
+    backdrop-filter: none;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+}

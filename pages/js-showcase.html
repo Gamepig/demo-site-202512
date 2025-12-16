@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="view-transition" content="same-origin">
+  <title>JS Showcase - Nexus Bento</title>
+  <link rel="stylesheet" href="../dist/output.css">
+  <link rel="manifest" href="../manifest.json">
+</head>
+<body class="bg-base text-primary min-h-screen">
+  <!-- Sidebar -->
+  <aside class="sidebar glass-sidebar">
+    <div class="p-6 border-b border-glass-border">
+      <a href="../index.html" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-bento bg-aurora flex items-center justify-center">
+          <span class="text-white font-bold">N</span>
+        </div>
+        <span class="text-xl font-bold text-primary">Nexus</span>
+      </a>
+    </div>
+    <nav class="p-4 space-y-2">
+      <a href="dashboard.html" class="sidebar-link">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+        </svg>
+        Dashboard
+      </a>
+      <a href="js-showcase.html" class="sidebar-link active">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+        </svg>
+        JS Showcase
+      </a>
+      <a href="projects.html" class="sidebar-link">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>
+        </svg>
+        Projects
+      </a>
+      <a href="profile.html" class="sidebar-link">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+        </svg>
+        Profile
+      </a>
+      <a href="settings-general.html" class="sidebar-link">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+        </svg>
+        Settings
+      </a>
+    </nav>
+  </aside>
+
+  <!-- Sidebar Overlay -->
+  <div class="sidebar-overlay"></div>
+
+  <!-- Main Content -->
+  <div class="lg:ml-[280px]">
+    <!-- Header -->
+    <header class="sticky top-0 z-40 glass-card border-0 border-b border-glass-border rounded-none">
+      <div class="flex items-center justify-between px-6 py-4">
+        <div class="flex items-center gap-4">
+          <button class="hamburger-menu lg:hidden p-2 rounded-lg hover:bg-white/10" data-hamburger>
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+          <h1 class="text-xl font-semibold">JavaScript Showcase</h1>
+        </div>
+        <div class="flex items-center gap-3">
+          <button data-theme-toggle class="p-2 rounded-lg glass-card hover:bg-white/10 transition-colors">
+            <span class="theme-icon">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Page Content -->
+    <main class="p-6">
+      <!-- Tabs -->
+      <div class="tabs mb-8">
+        <button class="tab-item active" data-tab="dom">DOM API</button>
+        <button class="tab-item" data-tab="async">Async/Await</button>
+        <button class="tab-item" data-tab="canvas">Canvas</button>
+        <button class="tab-item" data-tab="workers">Web Workers</button>
+      </div>
+
+      <!-- DOM Tab Panel -->
+      <div id="tab-dom" class="tab-panel active">
+        <div class="bento-grid">
+          <!-- DOM Manipulation Demo -->
+          <div class="bento-lg glass-card p-6">
+            <h3 class="text-lg font-semibold mb-4">DOM Manipulation</h3>
+            <div class="space-y-4">
+              <div id="dom-target" class="p-4 rounded-lg bg-surface-card text-center transition-all duration-300">
+                Click the buttons below
+              </div>
+              <div class="flex flex-wrap gap-3">
+                <button class="btn btn-primary btn-sm" onclick="changeText()">Change Text</button>
+                <button class="btn btn-secondary btn-sm" onclick="changeColor()">Change Color</button>
+                <button class="btn btn-glass btn-sm" onclick="addElement()">Add Element</button>
+                <button class="btn btn-glass btn-sm" onclick="resetDemo()">Reset</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event Handling Demo -->
+          <div class="bento-md glass-card p-6">
+            <h3 class="text-lg font-semibold mb-4">Event Handling</h3>
+            <div id="event-area" class="h-32 rounded-lg bg-surface-card flex items-center justify-center cursor-pointer select-none transition-all">
+              <span id="event-text">Hover, click, or drag me!</span>
+            </div>
+            <p class="text-sm text-secondary mt-3">Event: <span id="event-log" class="text-accent">waiting...</span></p>
+          </div>
+
+          <!-- Element Counter -->
+          <div class="bento-sm glass-card p-6">
+            <h3 class="text-lg font-semibold mb-4">Counter</h3>
+            <div class="text-center">
+              <span id="counter-value" class="text-4xl font-bold text-gradient-aurora">0</span>
+              <div class="flex justify-center gap-2 mt-4">
+                <button class="btn btn-sm btn-glass" onclick="decrementCounter()">-</button>
+                <button class="btn btn-sm btn-glass" onclick="incrementCounter()">+</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Live Clock -->
+          <div class="bento-sm glass-card p-6">
+            <h3 class="text-lg font-semibold mb-4">Live Clock</h3>
+            <div class="text-center">
+              <span id="live-clock" class="text-3xl font-mono text-primary">00:00:00</span>
+              <p class="text-sm text-secondary mt-2" id="live-date">Loading...</p>
+            </div>
+          </div>
+
+          <!-- Keyboard Input -->
+          <div class="bento-md glass-card p-6">
+            <h3 class="text-lg font-semibold mb-4">Keyboard Input</h3>
+            <input type="text" id="key-input" placeholder="Type here..."
+                   class="w-full p-3 rounded-lg bg-surface-card border border-glass-border focus:border-primary-500 focus:outline-none transition-colors">
+            <div class="mt-3 text-sm">
+              <p>Key: <span id="key-pressed" class="text-accent font-mono">-</span></p>
+              <p>Code: <span id="key-code" class="text-secondary font-mono">-</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Async Tab Panel -->
+      <div id="tab-async" class="tab-panel">
+        <div class="bento-grid">
+          <!-- Fetch Demo -->
+          <div class="bento-lg glass-card p-6">
+            <h3 class="text-lg font-semibold mb-4">Fetch API Demo</h3>
+            <div class="space-y-4">
+              <div class="flex gap-3">
+                <button class="btn btn-primary btn-sm" onclick="fetchRandomUser()">Fetch Random User</button>
+                <button class="btn btn-glass btn-sm" onclick="fetchPosts()">Fetch Posts</button>
+              </div>
+              <div id="fetch-result" class="p-4 rounded-lg bg-surface-card min-h-[100px] font-mono text-sm overflow-auto">
+                Click a button to fetch data...
+              </div>
+            </div>
+          </div>
+
+          <!-- Promise Chain -->
+          <div class="bento-md glass-card p-6">
+            <h3 class="text-lg font-semibold mb-4">Promise Chain</h3>
+            <button class="btn btn-secondary btn-sm mb-4" onclick="runPromiseChain()">Run Promise Chain</button>
+            <div id="promise-log" class="space-y-2 text-sm font-mono">
+              <p class="text-secondary">Click to start...</p>
+            </div>
+          </div>
+
+          <!-- Loading States -->
+          <div class="bento-md glass-card p-6">
+            <h3 class="text-lg font-semibold mb-4">Loading States</h3>
+            <div class="space-y-4">
+              <div class="flex items-center gap-3">
+                <div class="spinner w-6 h-6"></div>
+                <span>Spinner</span>
+              </div>
+              <div class="skeleton h-4 rounded"></div>
+              <div class="skeleton h-4 w-3/4 rounded"></div>
+              <div class="skeleton h-4 w-1/2 rounded"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Canvas Tab Panel -->
+      <div id="tab-canvas" class="tab-panel">
+        <div class="bento-grid">
+          <!-- Drawing Canvas -->
+          <div class="bento-xl glass-card p-6">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-lg font-semibold">Drawing Canvas</h3>
+              <div class="flex gap-2">
+                <input type="color" id="brush-color" value="#a855f7" class="w-8 h-8 rounded cursor-pointer">
+                <input type="range" id="brush-size" min="1" max="20" value="5" class="w-24">
+                <button class="btn btn-glass btn-sm" onclick="clearCanvas()">Clear</button>
+              </div>
+            </div>
+            <canvas id="drawing-canvas" class="w-full h-64 rounded-lg bg-surface-card cursor-crosshair"></canvas>
+          </div>
+
+          <!-- Particle System -->
+          <div class="bento-md glass-card p-6">
+            <h3 class="text-lg font-semibold mb-4">Particle System</h3>
+            <canvas id="particle-canvas" class="w-full h-48 rounded-lg bg-surface-card"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Workers Tab Panel -->
+      <div id="tab-workers" class="tab-panel">
+        <div class="bento-grid">
+          <!-- Web Worker Demo -->
+          <div class="bento-lg glass-card p-6">
+            <h3 class="text-lg font-semibold mb-4">Web Worker - Heavy Computation</h3>
+            <p class="text-secondary text-sm mb-4">Calculate prime numbers without blocking the UI</p>
+            <div class="flex gap-3 mb-4">
+              <input type="number" id="prime-limit" value="100000" class="p-2 rounded-lg bg-surface-card border border-glass-border w-32">
+              <button class="btn btn-primary btn-sm" onclick="startPrimeWorker()">Calculate Primes</button>
+            </div>
+            <div id="worker-result" class="p-4 rounded-lg bg-surface-card font-mono text-sm">
+              Ready to calculate...
+            </div>
+            <div id="worker-progress" class="mt-3 h-2 rounded-full bg-surface-card overflow-hidden">
+              <div id="progress-bar" class="h-full bg-aurora transition-all duration-300" style="width: 0%"></div>
+            </div>
+          </div>
+
+          <!-- Main Thread Status -->
+          <div class="bento-md glass-card p-6">
+            <h3 class="text-lg font-semibold mb-4">Main Thread Status</h3>
+            <p class="text-secondary text-sm mb-4">This animation proves the main thread is not blocked</p>
+            <div class="flex items-center gap-4">
+              <div id="thread-indicator" class="w-16 h-16 rounded-full bg-aurora animate-pulse"></div>
+              <div>
+                <p class="font-semibold">Animation Running</p>
+                <p class="text-sm text-secondary">FPS: <span id="fps-counter">60</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../js/core/main.js"></script>
+  <script src="../js/core/theme-toggle.js"></script>
+  <script src="../js/core/navigation.js"></script>
+
+  <!-- Effect Scripts -->
+  <script src="../js/effects/scroll-storytelling.js"></script>
+  <script src="../js/effects/micro-delights.js"></script>
+  <script src="../js/effects/bento-interactions.js"></script>
+
+  <!-- App Entry -->
+  <script src="../js/app.js"></script>
+  <script>
+    // Tab switching
+    document.querySelectorAll('.tab-item').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+      });
+    });
+
+    // DOM Demo Functions
+    let counter = 0;
+    const colors = ['var(--color-primary-500)', 'var(--color-secondary-500)', 'var(--color-accent-500)'];
+    let colorIndex = 0;
+
+    function changeText() {
+      document.getElementById('dom-target').textContent = 'Text changed at ' + new Date().toLocaleTimeString();
+    }
+
+    function changeColor() {
+      colorIndex = (colorIndex + 1) % colors.length;
+      document.getElementById('dom-target').style.background = colors[colorIndex];
+    }
+
+    function addElement() {
+      const el = document.createElement('div');
+      el.className = 'mt-2 p-2 rounded bg-surface-elevated text-sm animate-fade-in';
+      el.textContent = 'New element #' + (document.querySelectorAll('#dom-target + div').length + 1);
+      document.getElementById('dom-target').parentNode.insertBefore(el, document.querySelector('.flex.flex-wrap'));
+    }
+
+    function resetDemo() {
+      document.getElementById('dom-target').textContent = 'Click the buttons below';
+      document.getElementById('dom-target').style.background = '';
+      document.querySelectorAll('#dom-target ~ div:not(.flex)').forEach(el => el.remove());
+    }
+
+    // Counter
+    function incrementCounter() {
+      counter++;
+      document.getElementById('counter-value').textContent = counter;
+    }
+
+    function decrementCounter() {
+      counter--;
+      document.getElementById('counter-value').textContent = counter;
+    }
+
+    // Live Clock
+    function updateClock() {
+      const now = new Date();
+      document.getElementById('live-clock').textContent = now.toLocaleTimeString();
+      document.getElementById('live-date').textContent = now.toLocaleDateString('zh-TW', {
+        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+      });
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // Event Area
+    const eventArea = document.getElementById('event-area');
+    const eventLog = document.getElementById('event-log');
+
+    eventArea.addEventListener('mouseenter', () => { eventLog.textContent = 'mouseenter'; });
+    eventArea.addEventListener('mouseleave', () => { eventLog.textContent = 'mouseleave'; });
+    eventArea.addEventListener('click', () => { eventLog.textContent = 'click'; });
+    eventArea.addEventListener('dblclick', () => { eventLog.textContent = 'dblclick'; });
+
+    // Keyboard Input
+    document.getElementById('key-input').addEventListener('keydown', (e) => {
+      document.getElementById('key-pressed').textContent = e.key;
+      document.getElementById('key-code').textContent = e.code;
+    });
+
+    // Fetch Demo
+    async function fetchRandomUser() {
+      const result = document.getElementById('fetch-result');
+      result.innerHTML = '<div class="spinner mx-auto"></div>';
+      try {
+        const res = await fetch('https://randomuser.me/api/');
+        const data = await res.json();
+        const user = data.results[0];
+        result.innerHTML = `
+          <p><strong>Name:</strong> ${user.name.first} ${user.name.last}</p>
+          <p><strong>Email:</strong> ${user.email}</p>
+          <p><strong>Location:</strong> ${user.location.city}, ${user.location.country}</p>
+        `;
+      } catch (err) {
+        result.textContent = 'Error: ' + err.message;
+      }
+    }
+
+    async function fetchPosts() {
+      const result = document.getElementById('fetch-result');
+      result.innerHTML = '<div class="spinner mx-auto"></div>';
+      try {
+        const res = await fetch('https://jsonplaceholder.typicode.com/posts?_limit=3');
+        const posts = await res.json();
+        result.innerHTML = posts.map(p => `<p class="mb-2"><strong>${p.id}.</strong> ${p.title}</p>`).join('');
+      } catch (err) {
+        result.textContent = 'Error: ' + err.message;
+      }
+    }
+
+    // Promise Chain Demo
+    async function runPromiseChain() {
+      const log = document.getElementById('promise-log');
+      log.innerHTML = '';
+
+      const addLog = (msg, color = 'text-secondary') => {
+        log.innerHTML += `<p class="${color}">${new Date().toLocaleTimeString()}: ${msg}</p>`;
+      };
+
+      addLog('Starting promise chain...', 'text-primary');
+
+      await new Promise(r => setTimeout(r, 500));
+      addLog('Step 1 completed', 'text-success');
+
+      await new Promise(r => setTimeout(r, 500));
+      addLog('Step 2 completed', 'text-success');
+
+      await new Promise(r => setTimeout(r, 500));
+      addLog('Step 3 completed', 'text-success');
+
+      addLog('All steps completed!', 'text-accent');
+    }
+
+    // Canvas Drawing
+    const drawingCanvas = document.getElementById('drawing-canvas');
+    if (drawingCanvas) {
+      const ctx = drawingCanvas.getContext('2d');
+      let isDrawing = false;
+
+      drawingCanvas.width = drawingCanvas.offsetWidth;
+      drawingCanvas.height = drawingCanvas.offsetHeight;
+
+      drawingCanvas.addEventListener('mousedown', () => isDrawing = true);
+      drawingCanvas.addEventListener('mouseup', () => isDrawing = false);
+      drawingCanvas.addEventListener('mousemove', (e) => {
+        if (!isDrawing) return;
+        const rect = drawingCanvas.getBoundingClientRect();
+        ctx.fillStyle = document.getElementById('brush-color').value;
+        ctx.beginPath();
+        ctx.arc(
+          e.clientX - rect.left,
+          e.clientY - rect.top,
+          document.getElementById('brush-size').value,
+          0, Math.PI * 2
+        );
+        ctx.fill();
+      });
+    }
+
+    function clearCanvas() {
+      const canvas = document.getElementById('drawing-canvas');
+      const ctx = canvas.getContext('2d');
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    // Particle System
+    const particleCanvas = document.getElementById('particle-canvas');
+    if (particleCanvas) {
+      const pCtx = particleCanvas.getContext('2d');
+      particleCanvas.width = particleCanvas.offsetWidth;
+      particleCanvas.height = particleCanvas.offsetHeight;
+
+      const particles = [];
+      for (let i = 0; i < 50; i++) {
+        particles.push({
+          x: Math.random() * particleCanvas.width,
+          y: Math.random() * particleCanvas.height,
+          vx: (Math.random() - 0.5) * 2,
+          vy: (Math.random() - 0.5) * 2,
+          r: Math.random() * 3 + 1
+        });
+      }
+
+      function animateParticles() {
+        pCtx.clearRect(0, 0, particleCanvas.width, particleCanvas.height);
+        particles.forEach(p => {
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.x < 0 || p.x > particleCanvas.width) p.vx *= -1;
+          if (p.y < 0 || p.y > particleCanvas.height) p.vy *= -1;
+
+          pCtx.fillStyle = 'oklch(72% 0.20 195 / 0.8)';
+          pCtx.beginPath();
+          pCtx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          pCtx.fill();
+        });
+        requestAnimationFrame(animateParticles);
+      }
+      animateParticles();
+    }
+
+    // Web Worker Demo (simplified - inline worker)
+    function startPrimeWorker() {
+      const limit = parseInt(document.getElementById('prime-limit').value);
+      const result = document.getElementById('worker-result');
+      const progressBar = document.getElementById('progress-bar');
+
+      result.textContent = 'Calculating...';
+      progressBar.style.width = '0%';
+
+      // Simulate worker with setTimeout chunks
+      const primes = [];
+      let current = 2;
+
+      function findPrimes() {
+        const chunk = 1000;
+        const end = Math.min(current + chunk, limit);
+
+        for (let n = current; n <= end; n++) {
+          let isPrime = true;
+          for (let i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i === 0) { isPrime = false; break; }
+          }
+          if (isPrime) primes.push(n);
+        }
+
+        current = end + 1;
+        progressBar.style.width = (current / limit * 100) + '%';
+
+        if (current <= limit) {
+          setTimeout(findPrimes, 0);
+        } else {
+          result.textContent = `Found ${primes.length} primes up to ${limit}. Last 5: ${primes.slice(-5).join(', ')}`;
+        }
+      }
+
+      findPrimes();
+    }
+
+    // FPS Counter
+    let lastTime = performance.now();
+    let frameCount = 0;
+
+    function updateFPS() {
+      frameCount++;
+      const now = performance.now();
+      if (now - lastTime >= 1000) {
+        document.getElementById('fps-counter').textContent = frameCount;
+        frameCount = 0;
+        lastTime = now;
+      }
+      requestAnimationFrame(updateFPS);
+    }
+    updateFPS();
+  </script>
+</body>
+</html>

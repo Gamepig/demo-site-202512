@@ -1,0 +1,21 @@
+{
+  "name": "Nexus Bento - 2026 Web Design",
+  "short_name": "NexusBento",
+  "description": "2026 Web Design 趨勢展示平台 - Bento Grid + Glassmorphism",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#0D0B1A",
+  "theme_color": "#A855F7",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍱</text></svg>",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["productivity", "design", "utilities"],
+  "lang": "zh-TW",
+  "dir": "ltr"
+}
